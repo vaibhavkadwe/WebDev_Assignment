@@ -71,3 +71,27 @@ footer {
   padding: 10px;
   margin-top: 20px;
 }
+
+/* ---------- Menu table ---------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #c68b59;
+  color: white;
+}
+
+.category {
+  background-color: #f0e0d0;
+  font-weight: bold;
+  text-align: center;
+}
