@@ -1,0 +1,73 @@
+/* ---------- Basic styles ---------- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #fff8f0;
+  color: #333;
+}
+
+header {
+  background-color: #6f4e37;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+}
+
+nav a.active {
+  background-color: #c68b59;
+  border-radius: 5px;
+}
+
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.highlights h2 {
+  width: 100%;
+}
+
+.highlights article {
+  flex: 1;
+  min-width: 200px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+footer {
+  background-color: #6f4e37;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
