@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chai Corner - Contact & Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Chai Corner</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" class="active">Contact</a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Book a Table or Send an Enquiry</h2>
+      <form action="#" method="POST" class="booking-form">
+        
+        <div class="form-group">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required minlength="3" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" name="email" required placeholder="name@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+        </div>
+
+        <div class="form-group">
+          <label for="date">Booking Date:</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="guests">Number of Guests (1-10):</label>
+          <input type="number" id="guests" name="guests" min="1" max="10" value="2" required>
+        </div>
+
+        <div class="form-group">
+          <label for="seating">Seating Preference:</label>
+          <select id="seating" name="seating" required>
+            <option value="">--Please choose an option--</option>
+            <option value="indoor">Indoor Cozy</option>
+            <option value="outdoor">Outdoor Garden</option>
+            <option value="rooftop">Rooftop</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Occasion:</label>
+          <label class="radio-label"><input type="radio" name="occasion" value="casual" checked> Casual Hangout</label>
+          <label class="radio-label"><input type="radio" name="occasion" value="birthday"> Birthday</label>
+          <label class="radio-label"><input type="radio" name="occasion" value="meeting"> Business Meeting</label>
+        </div>
+
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox" name="newsletter" value="yes"> Subscribe to our tea-lover newsletter
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Special Requests / Message:</label>
+          <textarea id="message" name="message" rows="4" placeholder="Any allergies or special arrangements?"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Booking</button>
+      </form>
+    </section>
+
+    <section class="map-section">
+      <h2>Find Us Here</h2>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117925.21683935212!2d75.80104764999999!3d22.7240769!2m3!1f0!2f0!3f0!3m2!1f10!2f10!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fdaf1404fa3b%3A0xdefb2d9d61596765!2sIndore%2C%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+        width="100%" 
+        height="300" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        title="Chai Corner Location Map">
+      </iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Chai Corner | Indore, India</p>
+  </footer>
+
+  <script>
+    // Dark mode script remembered via localStorage
+    const toggleBtn = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      toggleBtn.textContent = '☀️ Light Mode';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      let theme = 'light';
+      if (document.body.classList.contains('dark-mode')) {
+        theme = 'dark';
+        toggleBtn.textContent = '☀️ Light Mode';
+      } else {
+        toggleBtn.textContent = '🌙 Dark Mode';
+      }
+      localStorage.setItem('theme', theme);
+    });
+  </script>
+
+</body>
+</html>

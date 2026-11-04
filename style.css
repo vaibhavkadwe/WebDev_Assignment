@@ -1,13 +1,38 @@
-/* ---------- Basic styles ---------- */
+/* ---------- Base styles & Variables ---------- */
+:root {
+  --bg-color: #fff8f0;
+  --text-color: #333;
+  --header-bg: #6f4e37;
+  --nav-active: #c68b59;
+  --card-bg: #ffffff;
+  --table-border: #ccc;
+  --category-bg: #f0e0d0;
+  --input-bg: #fff;
+  --input-border: #ccc;
+}
+
+body.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #f1f1f1;
+  --header-bg: #2d1e15;
+  --nav-active: #8c5830;
+  --card-bg: #2a2a2a;
+  --table-border: #444;
+  --category-bg: #3d2c20;
+  --input-bg: #333;
+  --input-border: #555;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #fff8f0;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 header {
-  background-color: #6f4e37;
+  background-color: var(--header-bg);
   color: white;
   padding: 15px;
   text-align: center;
@@ -16,7 +41,9 @@ header {
 nav {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
   margin-top: 10px;
 }
 
@@ -27,8 +54,21 @@ nav a {
 }
 
 nav a.active {
-  background-color: #c68b59;
+  background-color: var(--nav-active);
   border-radius: 5px;
+}
+
+#theme-toggle {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 main {
@@ -50,6 +90,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  margin-top: 20px;
 }
 
 .highlights h2 {
@@ -59,39 +100,41 @@ main {
 .highlights article {
   flex: 1;
   min-width: 200px;
-  background-color: white;
+  background-color: var(--card-bg);
   padding: 15px;
   border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 footer {
-  background-color: #6f4e37;
+  background-color: var(--header-bg);
   color: white;
   text-align: center;
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 /* ---------- Menu table ---------- */
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
+  background-color: var(--card-bg);
+  margin-top: 10px;
 }
 
 th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
+  border: 1px solid var(--table-border);
+  padding: 10px;
   text-align: left;
 }
 
 th {
-  background-color: #c68b59;
+  background-color: var(--nav-active);
   color: white;
 }
 
 .category {
-  background-color: #f0e0d0;
+  background-color: var(--category-bg);
   font-weight: bold;
   text-align: center;
 }
@@ -106,4 +149,94 @@ th {
 .gallery img {
   width: 100%;
   border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.gallery img:hover {
+  transform: scale(1.02);
+}
+
+video {
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+/* ---------- Contact Form ---------- */
+.booking-form {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.radio-label, .checkbox-label {
+  font-weight: normal !important;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.submit-btn {
+  background-color: var(--nav-active);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+.map-section {
+  margin-top: 30px;
+}
+
+.map-section iframe {
+  border-radius: 8px;
+}
+
+/* ---------- Responsive Media Queries ---------- */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  nav {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
 }
